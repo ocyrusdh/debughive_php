@@ -19,13 +19,13 @@ function get_resume_data() {
 	return [		'name' 		=> 'Damian Hyde',
               	'title' 		=> 'Damian Hyde Resume',
               	'job_title' 	=> 'Web Application Developer',
-              	'contact' 	=> ['phone' 				=> '9545994292',
-								'email'				=> 'ocyrus.dh@gmail.com',
-                          	  	'address' 			=> ['address_1' 	=> '6 Devon Ct.',
-                                      					'address_2' 	=> '',
-                                      					'city' 		=> 'Nanuet',
-                                      					'state' 		=> 'NY',
-                                      					'zip' 		=> '10954']],
+              	'phone' 		=> '9545994292',
+				'email'		=> 'ocyrus.dh@gmail.com',
+				'address_1' 	=> '6 Devon Ct.',
+				'address_2' 	=> '',
+				'city' 		=> 'Nanuet',
+				'state' 		=> 'NY',
+				'zip' 		=> '10954',
               	'skills' => ['coding' => [	['label' => 'HTML', 'score' => 4],
 											['label' => 'Pug', 'score' => 4],
 											['label' => 'CSS', 'score' => 4],
@@ -76,8 +76,8 @@ function get_resume_data() {
 													 "frontend.",
 					 				'list' 			=> [],
 					 				'contact' 		=> ['name' => 'Jeff Wolloman',
-									'title' 			=> 'CFO',
-									'phone' 			=> '9147722298']],
+														'title' 			=> 'CFO',
+														'phone' 			=> '9147722298']],
 				 				[	'company' 		=> 'Revintu',
 									'link' 			=> 'http://revintu.com/',
 									'start' 			=> 'May 2012',
@@ -198,7 +198,7 @@ Route::get('/', function () {
 	return view('debughive');
 });
 
-Route::get('/resume', function () {
+Route::get('resume', function () {
 	$data = get_resume_data();
 	return view('resume', $data);
 });

@@ -6,96 +6,12 @@
     function format_phone($phone) {
     	    return preg_replace("/(\d{3})(\d{3})(\d{4})/", "($1) $2-$3", $phone);
     	}
-
-    /**
-     * @param $skills
-     * @return string
-     */
-    function generate_skills($skills) {
-    	    $html = '';
-        foreach($skills AS $skill) {
-			$html .= $skill['label']
-                . "<div class=\"rating score_$skill[score]\">";
-            for ($i = 0; $i < 5; $i++) {
-				$html .= '<div></div>';
-            }
-			$html .= '</div>';
-        }
-		return $html;
-    	}
-
-    /**
-     * @param $experience
-     * @return string
-     */
-    function generate_xp($experiences) {
-        $html = '';
-        foreach($experiences AS $xp) {
-            $html .= '<div class="sub_section"><h3>'
-                . ($xp['link'] ? "<a href=\"$xp[link]\">$xp[company]</a>" : $xp['company'])
-                . "<span class=\"right\">$xp[start] - $xp[end]<span></h3>"
-                . $xp['title'] . "<br />"
-                . implode(' - ', $xp['skills'])
-                . "<p>$xp[description]</p>";
-                if ($xp['list']) {
-                    $html .= '<ul>';
-                    foreach ($xp['list'] as $li) {
-						$html .= '<li>' . ($li['link'] ? "<a href=\"$li[link]\">$li[item]</a>" : $li['item']) . '</li>';
-                    }
-                    $html .= '</ul>';
-                }
-                if ($xp['contact']) {
-					$html .= "<p>For proof of employment:<br />"
-                            . $xp['contact']['name'] . "<br />"
-                            . $xp['contact']['title'] . "<br />"
-                            . '<a href="callto:' . $xp['contact']['phone'] . '">'
-                            . format_phone($xp['contact']['phone'])
-                            . "</a></p>";
-                }
-            $html .= "</div>";
-        }
-        return $html;
-    }
-
-    /**
-     * @param $education
-     * @return string
-     */
-    function generate_education($education) {
-        $html = '';
-        foreach($education AS $ed) {
-            $html .= "<div class=\"sub_section\">
-                        <h3>$ed[certificate] <span class=\"right\">$ed[year]</span></h3>
-                        <span>$ed[school]</span><br />
-                        <span>$ed[state]</span>
-                        </div>";
-        }
-        return $html;
-    }
-
-    /**
-     * @param $references
-     * @return string
-     */
-    function generate_references($references) {
-		$html = '';
-		foreach($references AS $ref) {
-			$html .= "<div class=\"sub_section reference\">
-                        <h4>$ref[name]</h4>
-                        <div>$ref[title]</div>
-                        <div>$ref[company]</div>
-                        <a href=\"callto:$ref[phone]\">" . format_phone($ref['phone']) . "</a>
-                        <a href=\"mailto:$ref[email]\">$ref[email]</a>
-                        </div>";
-		}
-		return $html;
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?= $title ?></title>
+    <title>{{ $title }}</title>
     <style>
         html,
         body {
@@ -229,68 +145,117 @@
     <button id="print" onclick="window.print()">Print Me</button>
     <img src="http://debughive.com/public/images/debug.png" alt="logo" class="logo"/>
     <div class="column_1">
-        <h1><?= $name ?></h1>
-        <h4><?= $job_title ?></h4>
+        <h1>{{ $name }}</h1>
+        <h4>{{ $job_title }}</h4>
         <div>
             <h2>Contact Info</h2>
             <div class="sub_section">
                 <h3>Phone</h3>
-                <a href="callto:<?= $contact['phone'] ?>"><?= format_phone($contact['phone']) ?></a>
+                <a href="callto:{{ $phone }}">{{ format_phone($phone) }}</a>
             </div>
             <div class="sub_section">
                 <h3>Address</h3>
-                <a href="https://maps.google.com/?q=<?= urlencode($contact['address']['address_1'] . ', ' . $contact['address']['city'] . ', ' . $contact['address']['state'] . ', ' . $contact['address']['zip']) ?>" target="_blank">
-                    <?= $contact['address']['address_1'] . '<br />' .
-                        $contact['address']['city'] . ', ' . $contact['address']['state'] . ' ' . $contact['address']['zip'] ?>
+                <a href="https://maps.google.com/?q={{ urlencode($address_1 . ', ' . $city . ', ' . $state . ', ' . $zip) }}" target="_blank">
+                    {{ $address_1 }}<br />
+                    {{ $city . ', ' . $state . ' ' . $zip }}
                 </a>
             </div>
             <div class="sub_section">
                 <h3>Email</h3>
-                <a href="mailto:<?= $contact['email'] ?>"><?= $contact['email'] ?></a>
+                <a href="mailto:{{ $email }}">{{ $email }}</a>
             </div>
         </div>
         <div>
             <h2>Skills</h2>
-            <div class="sub_section">
-                <h3>Coding Languages</h3>
-                <?= generate_skills($skills['coding']) ?>
-            </div>
-            <div class="sub_section">
-                <h3>Frameworks</h3>
-                <?= generate_skills($skills['frameworks']) ?>
-            </div>
-            <div class="sub_section">
-                <h3>Environments</h3>
-                <?= generate_skills($skills['environments']) ?>
-            </div>
-            <div class="sub_section pagebreak">
-                <h3>Software</h3>
-                <?= generate_skills($skills['software']) ?>
-            </div>
+            @foreach($skills as $label => $list)
+                <div class="sub_section">
+                    <h3>{{ ucwords($label) }}</h3>
+                    @foreach($list as $skill)
+                        {{ $skill['label'] }}
+                        <div class="rating score_{{ $skill['score'] }}">
+                        @for ($i = 0; $i < 5; $i++)
+                            <div></div>
+                        @endfor
+                        </div>
+                    @endforeach
+                </div>
+            @endforeach
         </div>
     </div>
     <div class="column_2">
         <div>
             <h2>Professional Summary</h2>
             <br />
-            <span><?= $summary ?></span>
+            <span>{{ $summary }}</span>
         </div>
         <div>
             <h2>Relevant Experience</h2>
-            <?= generate_xp($experiences) ?>
+            @foreach($experiences AS $xp)
+                <div class="sub_section">
+                    <h3>
+                        @if($xp['link'])
+                            <a href="$xp[link]">{{ $xp['company'] }}</a>
+                        @else
+                            {{ $xp['company'] }}
+                        @endif
+                        <span class="right">{{ $xp['start'] }} - {{ $xp['end'] }}<span>
+                    </h3>
+                    {{ $xp['title'] }}<br />
+                    {{ implode(' - ', $xp['skills']) }}
+                    <p>{{ $xp['description'] }}</p>
+                    @if ($xp['list'])
+                        <ul>
+                        @foreach ($xp['list'] as $li)
+                            <li>
+                                @if($li['link'])
+                                    <a href="{{ $li['link'] }}">{{ $li['item'] }}</a>
+                                @else
+                                    {{ $li['item'] }}
+                                @endif
+                            </li>
+                        @endforeach
+                        </ul>
+                    @endif
+                    @if ($xp['contact'])
+                        <p>
+                            For proof of employment:<br />
+                            {{ $xp['contact']['name'] }}<br />
+                            {{ $xp['contact']['title'] }}<br />
+                            <a href="callto:{{ $xp['contact']['phone'] }}">{{ format_phone($xp['contact']['phone']) }}</a>
+                        </p>
+                    @endif
+                </div>
+            @endforeach
         </div>
         <div>
             <h2>Education</h2>
-			<?= generate_education($education) ?>
+            @foreach($education AS $ed)
+                <div class="sub_section">
+                    <h3>
+                        {{ $ed['certificate'] }}
+                        <span class="right">{{ $ed['year'] }}</span>
+                    </h3>
+                    <span>{{ $ed['school'] }}</span><br />
+                    <span>{{ $ed['state'] }}</span>
+                </div>
+            @endforeach
         </div>
         <div>
             <h2>Hobbies</h2>
             <br />
-            <?= implode(' - ', $hobbies) ?>
+            {{ implode(' - ', $hobbies) }}
         </div>
         <div>
             <h2>Professional References</h2>
-            <?= generate_references($references) ?>
+            @foreach($references AS $ref)
+                <div class="sub_section reference">
+                    <h4>{{ $ref['name'] }}</h4>
+                    <div>{{ $ref['title'] }}</div>
+                    <div>{{ $ref['company'] }}</div>
+                    <a href="callto:{{ $ref['phone'] }}">{{ format_phone($ref['phone']) }}</a>
+                    <a href="mailto:{{ $ref['email'] }}">{{ $ref['email'] }}</a>
+                </div>
+            @endforeach
         </div>
     </div>
 </body>
