@@ -15,7 +15,35 @@
 	return view('welcome');
 });*/
 
-function get_resume_data() {
+function get_resume_data($user_ID) {
+	$resume = DB::table('users')
+				->leftjoin('resume', 'resume.users_id', '=', 'users.id')
+				->select('users.*', 'resume.id AS resume_id', 'resume.summary')
+				->where('users.id', '=', $user_ID)
+				->limit(1)
+				->get();
+	$resume = $resume->toArray()[0];
+	//dd($resume->id);
+	$resume->skills = DB::table('resume_skills')
+						->where('resume_id', '=', $resume->resume_id)
+						->get()
+						->toArray();
+	foreach ($resume->skills AS $key => $skill) {
+		$resume->skills[$key]->items = DB::table('resume_skills_items')
+										->where('resume_skills_id', '=', $skill->id)
+										->get()->toArray();
+	}
+	//dd($resume);
+	return $resume;
+	/*					->leftjoin('resume_skills_items rsi', 'rsi.resume_skills_id', '=', 'rs.id')*/
+
+			/*DB::raw('count(case when subscribers.status = "Active" then 1 else null end) as count_active'),
+			DB::raw('count(case when subscribers.status = "Unsubsribed" then 1 else null end) as count_unsubsribers'),
+			DB::raw('count(case when subscribers.status = "Bounced" then 1 else null end) as count_bounced'),
+			DB::raw('count(subscribers_lists_subscribers.subscribers_list_id) as count_total'),
+			'subscribers_lists.updated_at as last_activity'*/
+
+
 	return [		'name' 		=> 'Damian Hyde',
               	'title' 		=> 'Damian Hyde Resume',
               	'job_title' 	=> 'Web Application Developer',
@@ -199,6 +227,6 @@ Route::get('/', function () {
 });
 
 Route::get('resume', function () {
-	$data = get_resume_data();
+	$data = get_resume_data(1);
 	return view('resume', $data);
 });
