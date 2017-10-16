@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ $title }}</title>
+    <title>{{ $user->name . ' Resume' }}</title>
     <style>
         html,
         body {
@@ -145,40 +145,30 @@
     <button id="print" onclick="window.print()">Print Me</button>
     <img src="http://debughive.com/public/images/debug.png" alt="logo" class="logo"/>
     <div class="column_1">
-        <h1>{{ $name }}</h1>
-        <h4>{{ $job_title }}</h4>
+        <h1>{{ $user->name }}</h1>
+        <h4>{{ $user->job_title }}</h4>
         <div>
             <h2>Contact Info</h2>
             <div class="sub_section">
                 <h3>Phone</h3>
-                <a href="callto:{{ $phone }}">{{ format_phone($phone) }}</a>
+                <a href="callto:{{ $user->phone }}">{{ format_phone($user->phone) }}</a>
             </div>
             <div class="sub_section">
                 <h3>Address</h3>
-                <a href="https://maps.google.com/?q={{ urlencode($address_1 . ', ' . $city . ', ' . $state . ', ' . $zip) }}" target="_blank">
-                    {{ $address_1 }}<br />
-                    {{ $city . ', ' . $state . ' ' . $zip }}
+                <a href="https://maps.google.com/?q={{ urlencode($user->address_1 . ', ' . $user->city . ', ' . $user->state . ', ' . $user->zip) }}" target="_blank">
+                    {{ $user->address_1 }}<br />
+                    {{ $user->city . ', ' . $user->state . ' ' . $user->zip }}
                 </a>
             </div>
             <div class="sub_section">
                 <h3>Email</h3>
-                <a href="mailto:{{ $email }}">{{ $email }}</a>
+                <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
             </div>
         </div>
         <div>
             <h2>Skills</h2>
-            @foreach($skills as $label => $list)
-                <div class="sub_section">
-                    <h3>{{ ucwords($label) }}</h3>
-                    @foreach($list as $skill)
-                        {{ $skill['label'] }}
-                        <div class="rating score_{{ $skill['score'] }}">
-                        @for ($i = 0; $i < 5; $i++)
-                            <div></div>
-                        @endfor
-                        </div>
-                    @endforeach
-                </div>
+            @foreach($user->resume->skills as $skill)
+                @include ('resume.resume_skills')
             @endforeach
         </div>
     </div>
@@ -186,75 +176,31 @@
         <div>
             <h2>Professional Summary</h2>
             <br />
-            <span>{{ $summary }}</span>
+            <span>{{ $user->resume->summary }}</span>
         </div>
         <div>
             <h2>Relevant Experience</h2>
-            @foreach($experiences AS $xp)
-                <div class="sub_section">
-                    <h3>
-                        @if($xp['link'])
-                            <a href="$xp[link]">{{ $xp['company'] }}</a>
-                        @else
-                            {{ $xp['company'] }}
-                        @endif
-                        <span class="right">{{ $xp['start'] }} - {{ $xp['end'] }}<span>
-                    </h3>
-                    {{ $xp['title'] }}<br />
-                    {{ implode(' - ', $xp['skills']) }}
-                    <p>{{ $xp['description'] }}</p>
-                    @if ($xp['list'])
-                        <ul>
-                        @foreach ($xp['list'] as $li)
-                            <li>
-                                @if($li['link'])
-                                    <a href="{{ $li['link'] }}">{{ $li['item'] }}</a>
-                                @else
-                                    {{ $li['item'] }}
-                                @endif
-                            </li>
-                        @endforeach
-                        </ul>
-                    @endif
-                    @if ($xp['contact'])
-                        <p>
-                            For proof of employment:<br />
-                            {{ $xp['contact']['name'] }}<br />
-                            {{ $xp['contact']['title'] }}<br />
-                            <a href="callto:{{ $xp['contact']['phone'] }}">{{ format_phone($xp['contact']['phone']) }}</a>
-                        </p>
-                    @endif
-                </div>
+            @foreach($user->resume->experience as $xp)
+                @include ('resume.resume_experience')
             @endforeach
         </div>
         <div>
             <h2>Education</h2>
-            @foreach($education AS $ed)
-                <div class="sub_section">
-                    <h3>
-                        {{ $ed['certificate'] }}
-                        <span class="right">{{ $ed['year'] }}</span>
-                    </h3>
-                    <span>{{ $ed['school'] }}</span><br />
-                    <span>{{ $ed['state'] }}</span>
-                </div>
+            @foreach($user->resume->education as $ed)
+                @include ('resume.resume_education')
             @endforeach
         </div>
         <div>
             <h2>Hobbies</h2>
             <br />
-            {{ implode(' - ', $hobbies) }}
+            @foreach($user->resume->hobbies as $hobby)
+
+            @endforeach
         </div>
         <div>
             <h2>Professional References</h2>
-            @foreach($references AS $ref)
-                <div class="sub_section reference">
-                    <h4>{{ $ref['name'] }}</h4>
-                    <div>{{ $ref['title'] }}</div>
-                    <div>{{ $ref['company'] }}</div>
-                    <a href="callto:{{ $ref['phone'] }}">{{ format_phone($ref['phone']) }}</a>
-                    <a href="mailto:{{ $ref['email'] }}">{{ $ref['email'] }}</a>
-                </div>
+            @foreach($user->resume->references as $ref)
+                @include ('resume.resume_reference')
             @endforeach
         </div>
     </div>

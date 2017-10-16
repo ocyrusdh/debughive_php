@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Users extends Authenticatable
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -29,6 +29,6 @@ class Users extends Authenticatable
 
 	public function resume()
 	{
-		return $this->hasOne(Resumes::class);
+		return $this->hasOne(Resumes::class, 'users_id', 'id');
 	}
 }
