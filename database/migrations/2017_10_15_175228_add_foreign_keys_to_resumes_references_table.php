@@ -14,7 +14,7 @@ class AddForeignKeysToResumesReferencesTable extends Migration {
 	{
 		Schema::table('resumes_references', function(Blueprint $table)
 		{
-			$table->foreign('resumes_id', 'resumes_references_ibfk_1')->references('id')->on('resumes')->onUpdate('CASCADE')->onDelete('RESTRICT');
+			$table->foreign('resumes_id', 'resumes_references_ibfk_1')->references('id')->on('resumes')->onUpdate('CASCADE')->onDelete('SET NULL');
 		});
 	}
 

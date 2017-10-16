@@ -1,4 +1,4 @@
-<div class="sub_section">
+<div class="sub_section{{ ($xp->company == 'Freelance' ? ' pagebreak' : '') }}">
     <h3>
         @if($xp->link)
             <a href="$xp[link]">{{ $xp->company }}</a>

@@ -21,7 +21,6 @@ class CreateResumesReferencesTable extends Migration {
 			$table->string('company', 36);
 			$table->string('phone', 10);
 			$table->string('email', 128);
-			$table->boolean('active')->default(1);
 		});
 	}
 
