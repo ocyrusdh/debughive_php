@@ -12,4 +12,9 @@ class ResumesExperiencesSkills extends Model
 	{
 		return $this->belongsTo('ResumesExperiences');
 	}
+
+	public function item()
+	{
+		return $this->hasOne(ResumesSkillsItems::class, 'id', 'resumes_skills_items_id');
+	}
 }

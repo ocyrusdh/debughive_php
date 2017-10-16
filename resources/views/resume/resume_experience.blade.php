@@ -8,9 +8,13 @@
         <span class="right">{{ $xp->start . ' - ' . $xp->end }}</span>
     </h3>
     {{ $xp->job_title }}<br />
-    @foreach ($xp->skills as $li)
-
-    @endforeach
+    <?php
+        $xp_skills = [];
+	    foreach ($xp->skills as $xp_s) {
+			$xp_skills[] = $xp_s->item->label;
+	    	}
+	    echo implode(' - ', $xp_skills);
+    ?>
     <p>{{ $xp->description }}</p>
     @if ($xp->list)
         <ul>

@@ -6,6 +6,10 @@
     function format_phone($phone) {
     	    return preg_replace("/(\d{3})(\d{3})(\d{4})/", "($1) $2-$3", $phone);
     	}
+
+    	function inline_list($list_obj, $property) {
+    	    array_column($cats, 'id');
+    	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -193,9 +197,7 @@
         <div>
             <h2>Hobbies</h2>
             <br />
-            @foreach($user->resume->hobbies as $hobby)
-
-            @endforeach
+            {{  implode(' - ', array_column($user->resume->hobbies->toArray(), 'hobby')) }}
         </div>
         <div>
             <h2>Professional References</h2>
