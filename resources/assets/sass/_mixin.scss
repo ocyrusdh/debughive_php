@@ -1,0 +1,212 @@
+@import '_variables';
+
+@mixin reset {
+  html,
+  body {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin bp-large {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+/*
+Usage
+.sidebar {
+  width: 60%;
+  float: left;
+  margin: 0 2% 0 0;
+  @include bp-small {
+    width: 100%;
+    float: none;
+    margin: 0;
+  }
+}
+Output
+.sidebar {
+  width: 60%;
+  float: left;
+  margin: 0 2% 0 0;
+  @media only screen and (max-width: 30){
+    .sidebar{width: 100%; float: none; margin: 0;}
+  }
+}
+*/
+
+/*pattern.svg
+pattern.png
+pattern@2x.png*/
+
+@mixin background-image($name, $size:false, $repeat: false, $position: false){
+  background-image: url(#{$image-path}/#{$name}.svg);
+  @if($size) {
+    background-size: $size;
+  }
+  @if($repeat) {
+    background-repeat: $repeat;
+  }
+  @if($position) {
+    background-position: $position;
+  }
+  .no-svg &{
+    background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+    @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+      background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+    }
+  }
+}
+/*
+Usage
+body {
+  @include background-image('pattern');
+}
+*/
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+/*
+Usage
+@include keyframes(slide-down) {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+}
+
+.element {
+  width: 100px;
+  height: 100px;
+  background: black;
+  @include animation('slide-down 5s 3');
+}
+*/
+
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin border($type, $thickness: 1px, $color: #000) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/*
+Usage
+.container-with-floated-children {
+  @extend %clearfix;
+}
+*/
+@mixin no_select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+@mixin background_bevel_corner($color: #000, $size: 50px, $corner_1: 30deg, $corner_2: 150deg, $corner_3: 210deg, $corner_4: 330deg) {
+  background: $color; /* default color */
+  background: -moz-linear-gradient($corner_1, transparent $size, $color $size),
+              -moz-linear-gradient($corner_2, transparent $size, $color $size),
+              -moz-linear-gradient($corner_3, transparent $size, $color $size),
+              -moz-linear-gradient($corner_4, transparent $size, $color $size);
+  background: -o-linear-gradient($corner_1, transparent $size, $color $size),
+              -o-linear-gradient($corner_2, transparent $size, $color $size),
+              -o-linear-gradient($corner_3, transparent $size, $color $size),
+              -o-linear-gradient($corner_4, transparent $size, $color $size);
+  background: -webkit-linear-gradient($corner_1, transparent $size, $color $size),
+              -webkit-linear-gradient($corner_2, transparent $size, $color $size),
+              -webkit-linear-gradient($corner_3, transparent $size, $color $size),
+              -webkit-linear-gradient($corner_4, transparent $size, $color $size);
+  background-position: bottom left, bottom right, top right, top left;
+  -moz-background-size: 50% 50%;
+  -webkit-background-size: 50% 50%;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}

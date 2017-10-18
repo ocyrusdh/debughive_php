@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Debug Hive</title>
 
-        <link rel="stylesheet" href="http://debughive.com/public/stylesheets/debughive.css">
+        <link rel="stylesheet" href="css/app.css">
 
     </head>
     <body>
