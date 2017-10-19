@@ -6,3 +6,5 @@ Route::get('/', function () {
 
 Route::get('resume', 'ResumeController@index');
 
+Route::get('rental{renter_id}', 'RentalController@index');
+

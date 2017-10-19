@@ -1,0 +1,56 @@
+.rental {
+  padding: 20px;
+  box-sizing: border-box;
+  @include font-size(12px);
+
+  h3 {
+    margin: 30px 0 5px;
+    border-bottom: solid 1px #CCC;
+  }
+
+  .column {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 20px;
+    &.size_2 {
+      width: 50%;
+    }
+    &.size_4 {
+      width: 25%;
+    }
+
+    div {
+      border-bottom: solid 1px #000;
+    }
+  }
+  .address {
+    margin: 10px 0;
+    display: block;
+    &:visited {
+      color: #000;
+    }
+  }
+  .parties {
+    margin: 10px 0;
+
+    .signature {
+      height: 50px;
+    }
+  }
+
+  @media print {
+
+    .pagebreak {
+      page-break-before: always;
+    }
+
+    a {
+      color: #000;
+      &:visited {
+        color: #000;
+      }
+    }
+
+  }
+
+}

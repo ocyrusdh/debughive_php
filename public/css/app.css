@@ -63,11 +63,11 @@ body {
   width: 100%;
 }
 
-body {
+body.debughive {
   background-image: url("http://debughive.com/public/images/tile_background.jpg");
 }
 
-.no_select {
+body.debughive .no_select {
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -82,7 +82,7 @@ body {
                                   supported by Chrome and Opera */
 }
 
-div.logo {
+body.debughive div.logo {
   background-image: url("http://debughive.com/public/images/debug.png");
   background-repeat: no-repeat;
   background-position: center center;
@@ -93,7 +93,7 @@ div.logo {
   margin: auto;
 }
 
-div.hexagon {
+body.debughive div.hexagon {
   position: absolute;
   width: 177px;
   height: 127px;
@@ -105,7 +105,7 @@ div.hexagon {
   font-family: arial;
 }
 
-div.hexagon:active {
+body.debughive div.hexagon:active {
   color: #FFF;
   margin-bottom: 15px;
   padding: 15px;
@@ -117,18 +117,231 @@ div.hexagon:active {
   background-repeat: no-repeat;
 }
 
-div.hexagon.one {
+body.debughive div.hexagon.one {
   top: 213px;
   left: 6px;
 }
 
-div.hexagon.two {
+body.debughive div.hexagon.two {
   top: 295px;
   left: 150px;
 }
 
-div.hexagon.three {
+body.debughive div.hexagon.three {
   top: 213px;
   left: 292px;
+}
+
+.resume {
+  font-family: "Calibri Light";
+  font-size: 12pt;
+}
+
+.resume img.logo {
+  height: 120px;
+  float: right;
+  margin: 5px 20px -56px 0;
+}
+
+.resume div.column_1 {
+  margin: 10px 20px;
+  float: left;
+}
+
+.resume div.column_2 {
+  clear: right;
+  border-left: solid 1px #000;
+  padding: 0 20px 0 40px;
+  margin: 0 0 0 236px;
+}
+
+.resume div.column_1 > div,
+.resume div.column_2 > div {
+  padding: 20px 0;
+  text-align: justify;
+  text-justify: auto;
+}
+
+.resume h1 {
+  font-size: 24pt;
+  margin: 0;
+}
+
+.resume h2 {
+  font-size: 18pt;
+  margin: 0;
+  color: steelblue;
+}
+
+.resume h3 {
+  font-size: 14pt;
+  margin: 0 0 5px;
+  border-bottom: solid 1px #CCC;
+}
+
+.resume h4 {
+  font-size: 12pt;
+  margin: 0;
+}
+
+.resume p,
+.resume ul {
+  font-family: "Calibri Light";
+  font-size: 10pt;
+}
+
+.resume .right {
+  float: right;
+}
+
+.resume div.rating {
+  margin: 0 0 5px;
+}
+
+.resume div.rating div {
+  border-radius: 50%;
+  border: solid 1px steelblue;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.resume div.rating.score_1 div:nth-child(1),
+.resume div.rating.score_2 div:nth-child(-N+2),
+.resume div.rating.score_3 div:nth-child(-N+3),
+.resume div.rating.score_4 div:nth-child(-N+4),
+.resume div.rating.score_5 div {
+  border: solid 10px steelblue;
+}
+
+.resume a {
+  color: steelblue;
+  text-decoration: none;
+}
+
+.resume a:visited {
+  color: steelblue;
+}
+
+.resume div.sub_section {
+  margin: 20px 0 0 0;
+}
+
+.resume div.reference a {
+  display: block;
+}
+
+.resume #print {
+  background-color: steelblue;
+  color: #FFF;
+  border: 0;
+  border-radius: 0 0 10px 10px;
+  width: 100px;
+  padding: 20px 0 5px;
+  text-align: center;
+  margin-left: -50px;
+  position: fixed;
+  top: -10px;
+  left: 50%;
+  z-index: 100;
+  font-size: 16pt;
+  cursor: pointer;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+  -webkit-transition: top 0.7s ease-in-out;
+  transition: top 0.7s ease-in-out;
+}
+
+.resume #print:focus {
+  outline: none;
+  top: -70px;
+}
+
+@media print {
+  .resume #print {
+    display: none;
+  }
+
+  .resume div.column_2 {
+    width: 800px;
+  }
+
+  .resume .pagebreak {
+    page-break-before: always;
+  }
+
+  .resume a {
+    color: #000;
+  }
+
+  .resume a:visited {
+    color: #000;
+  }
+}
+
+.rental {
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 12px;
+  font-size: 0.75rem;
+}
+
+.rental h3 {
+  margin: 30px 0 5px;
+  border-bottom: solid 1px #CCC;
+}
+
+.rental .column {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.rental .column.size_2 {
+  width: 50%;
+}
+
+.rental .column.size_4 {
+  width: 25%;
+}
+
+.rental .column div {
+  border-bottom: solid 1px #000;
+}
+
+.rental .address {
+  margin: 10px 0;
+  display: block;
+}
+
+.rental .address:visited {
+  color: #000;
+}
+
+.rental .parties {
+  margin: 10px 0;
+}
+
+.rental .parties .signature {
+  height: 50px;
+}
+
+@media print {
+  .rental .pagebreak {
+    page-break-before: always;
+  }
+
+  .rental a {
+    color: #000;
+  }
+
+  .rental a:visited {
+    color: #000;
+  }
 }
 

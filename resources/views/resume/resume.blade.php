@@ -12,9 +12,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ $user->name . ' Resume' }}</title>
-    <link rel='stylesheet' href='/css/resume.css' />
+    <link rel='stylesheet' href='/css/app.css' />
 </head>
-<body>
+<body class="resume">
     <button id="print" onclick="window.print()">Print Me</button>
     <img src="/images/debug.png" alt="logo" class="logo"/>
     <div class="column_1">
