@@ -1,0 +1,93 @@
+.debughive {
+  background-image: url('http://debughive.com/public/images/tile_background.jpg');
+
+  .no_select {
+    @include no_select;
+  }
+
+  div.logo {
+    $logo_color: #000;
+    /*background-image: url('http://debughive.com/public/images/debug.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 500px;*/
+    height: 500px;
+    width: 500px;
+    position: relative;
+    margin: auto;
+
+    div.debug {
+      .head {
+        position: absolute;
+        top: 50px;
+        left: 226px;
+        @include half_hexagon($logo_color, 52px);
+        @include rotate(-90deg);
+        .antena {
+          background: $logo_color;
+          width: 10px;
+          height: 30px;
+          position: absolute;
+          &.antena_l {
+            top: 5px;
+            right: 5px;
+            @include rotate(60deg);
+          }
+          &.antena_r {
+            bottom: 5px;
+            right: 5px;
+            @include rotate(120deg);
+          }
+          div {
+            position: absolute;
+            top: -15px;
+            left: -5px;
+            background: $logo_color;
+            width: 20px;
+            height: 20px;
+            @include border-radius(50%);
+          }
+        }
+      }
+      .wing_l {
+        position: absolute;
+        top: 129px;
+        left: 162px;
+        @include half_hexagon($logo_color, 90px, 0px, 5px);
+        @include rotate(180deg);
+      }
+      .wing_r {
+        position: absolute;
+        top: 129px;
+        left: 258px;
+        @include half_hexagon($logo_color, 90px, 10px, 5px);
+      }
+    }
+
+    div.hexagon {
+      position: absolute;
+      color: transparent;
+      font-size: 150px;
+      text-align: center;
+      line-height: 159px;
+      @include hexagon($logo_color, 90px, 5px);
+      &:active {
+        color: #FFF;
+        @include hexagon($logo_color, 90px);
+      }
+      &.one {
+        top: 213px;
+        left: 20px;
+      }
+      &.two {
+        top: 295px;
+        left: 163px;
+      }
+      &.three {
+        top: 213px;
+        left: 306px;
+      }
+    }
+
+  }
+}

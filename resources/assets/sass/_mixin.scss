@@ -205,8 +205,105 @@ Usage
               -webkit-linear-gradient($corner_3, transparent $size, $color $size),
               -webkit-linear-gradient($corner_4, transparent $size, $color $size);
   background-position: bottom left, bottom right, top right, top left;
-  -moz-background-size: 50% 50%;
-  -webkit-background-size: 50% 50%;
-  background-size: 50% 50%;
+  -moz-background-size: 51% 51%;
+  -webkit-background-size: 51% 51%;
+  background-size: 51% 51%;
   background-repeat: no-repeat;
+}
+
+@mixin hexagon($color: #000, $size: 90px, $border_size: false) {
+  $width: $size * 2;
+  $height: $size * 1.75;
+  $size: $height / 4;
+  $bborder: $height / 2 + 1;
+  $border: $height / 2 + 1;
+  @if ($border_size != false) {
+    $bborder: $border_size;
+    $border: $size + $border_size;
+  }
+  $corner_1: 30deg;
+  $top: 270deg;
+  $corner_2: 150deg;
+  $corner_3: 210deg;
+  $bottom: 90deg;
+  $corner_4: 330deg;
+  width: $width;
+  height: $height;
+  background: $color; /* default color */
+  background: -moz-linear-gradient($corner_1, transparent $size, $color $size, $color $border, transparent $border),
+              -moz-linear-gradient($corner_2, transparent $size, $color $size, $color $border, transparent $border),
+              -moz-linear-gradient($corner_3, transparent $size, $color $size, $color $border, transparent $border),
+              -moz-linear-gradient($corner_4, transparent $size, $color $size, $color $border, transparent $border),
+              -moz-linear-gradient($top, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -moz-linear-gradient($bottom, transparent 0px, $color 0px, $color $bborder, transparent $bborder);
+  background: -o-linear-gradient($corner_1, transparent $size, $color $size, $color $border, transparent $border),
+              -o-linear-gradient($corner_2, transparent $size, $color $size, $color $border, transparent $border),
+              -o-linear-gradient($corner_3, transparent $size, $color $size, $color $border, transparent $border),
+              -o-linear-gradient($corner_4, transparent $size, $color $size, $color $border, transparent $border),
+              -o-linear-gradient($top, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -o-linear-gradient($bottom, transparent 0px, $color 0px, $color $bborder, transparent $bborder);
+  background: -webkit-linear-gradient($corner_1, transparent $size, $color $size, $color $border, transparent $border),
+              -webkit-linear-gradient($corner_2, transparent $size, $color $size, $color $border, transparent $border),
+              -webkit-linear-gradient($corner_3, transparent $size, $color $size, $color $border, transparent $border),
+              -webkit-linear-gradient($corner_4, transparent $size, $color $size, $color $border, transparent $border),
+              -webkit-linear-gradient($top, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -webkit-linear-gradient($bottom, transparent 0px, $color 0px, $color $bborder, transparent $bborder);
+  background-position: bottom left, bottom right, top right, top left, top center, bottom center;
+  -moz-background-size: 51% 51%;
+  -webkit-background-size: 51% 51%;
+  background-size: 51% 51%;
+  background-repeat: no-repeat;
+}
+
+@mixin half_hexagon($color: #000, $size: 90px, $border_size: 0px, $clip: 0px) {
+  $width: $size - $clip;
+  $height: $size * 1.75;
+  $left: -$size / 9 - 2;
+  $size: $height / 4;
+  $bborder: $height / 4 + 1;
+  $border: $height / 2 + 2;
+  @if ($border_size != 0px) {
+    $bborder: $border_size;
+    $border: $size + $border_size;
+  }
+  $corner_1: 0deg;
+  $top: 270deg;
+  $corner_2: 150deg;
+  $corner_3: 210deg;
+  $bottom: 90deg;
+  $corner_4: 0deg;
+  width: $width;
+  height: $height;
+  background: $color; /* default color */
+  background: -moz-linear-gradient($corner_1, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -moz-linear-gradient($corner_2, transparent $size, $color $size, $color $border, transparent $border),
+              -moz-linear-gradient($corner_3, transparent $size, $color $size, $color $border, transparent $border),
+              -moz-linear-gradient($corner_4, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -moz-linear-gradient($top, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -moz-linear-gradient($bottom, transparent 0px, $color 0px, $color $bborder, transparent $bborder);
+  background: -o-linear-gradient($corner_1, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -o-linear-gradient($corner_2, transparent $size, $color $size, $color $border, transparent $border),
+              -o-linear-gradient($corner_3, transparent $size, $color $size, $color $border, transparent $border),
+              -o-linear-gradient($corner_4, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -o-linear-gradient($top, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -o-linear-gradient($bottom, transparent 0px, $color 0px, $color $bborder, transparent $bborder);
+  background: -webkit-linear-gradient($corner_1, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -webkit-linear-gradient($corner_2, transparent $size, $color $size, $color $border, transparent $border),
+              -webkit-linear-gradient($corner_3, transparent $size, $color $size, $color $border, transparent $border),
+              -webkit-linear-gradient($corner_4, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -webkit-linear-gradient($top, transparent 0px, $color 0px, $color $bborder, transparent $bborder),
+              -webkit-linear-gradient($bottom, transparent 0px, $color 0px, $color $bborder, transparent $bborder);
+  background-position: bottom left, bottom right, top right, top left, top left $left, bottom left $left;
+  -moz-background-size: 51% 51%;
+  -webkit-background-size: 51% 51%;
+  background-size: 60% 51%;
+  background-repeat: no-repeat;
+}
+
+@mixin rotate($degree) {
+  -ms-transform: rotate($degree);
+  -moz-transform: rotate($degree);
+  -o-transform: rotate($degree);
+  -webkit-transform: rotate($degree);
+  transform: rotate($degree);
 }

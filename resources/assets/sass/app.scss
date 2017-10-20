@@ -1,55 +1,5 @@
 @import 'mixin';
 @include reset;
-
-.debughive {
-  background-image: url('http://debughive.com/public/images/tile_background.jpg');
-
-  .no_select {
-    @include no_select;
-  }
-
-  div.logo {
-    background-image: url('http://debughive.com/public/images/debug.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 500px;
-    height: 500px;
-    width: 500px;
-    position: relative;
-    margin: auto;
-  }
-
-  div.hexagon {
-    position: absolute;
-    width: 177px;
-    height: 127px;
-    background: transparent;
-    color: transparent;
-    font-size: 150px;
-    text-align: center;
-    line-height: 133px;
-    font-family: arial;
-    &:active {
-      color: #FFF;
-      margin-bottom: 15px;
-      padding: 15px;
-      @include background_bevel_corner($color: #000, $size: 50px)
-    }
-  }
-
-  div.hexagon.one {
-    top: 213px;
-    left: 6px;
-  }
-  div.hexagon.two {
-    top: 295px;
-    left: 150px;
-  }
-  div.hexagon.three {
-    top: 213px;
-    left: 292px;
-  }
-}
-
+@import 'debughive';
 @import 'resume';
 @import 'rental';
