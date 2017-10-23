@@ -1,6 +1,7 @@
 .resume {
   font-family: "Calibri Light";
   font-size: 12pt;
+  background: #FFF;
 
   img.logo {
     height: 120px;
@@ -88,12 +89,18 @@
     }
   }
 
-  div.sub_section {
+  .sub_section {
     margin: 20px 0 0 0;
-  }
 
-  div.reference a {
-    display: block;
+    &.reference {
+      display: inline-block;
+      vertical-align: top;
+      margin: 20px 20px 0 0;
+      width: 220px;
+      a {
+        display: block;
+      }
+    }
   }
 
   #print {

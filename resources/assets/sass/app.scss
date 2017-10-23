@@ -3,3 +3,7 @@
 @import 'debughive';
 @import 'resume';
 @import 'rental';
+
+[v-cloak] {
+  display: none;
+}

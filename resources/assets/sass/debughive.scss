@@ -1,21 +1,16 @@
-.debughive {
-  background-image: url('http://debughive.com/public/images/tile_background.jpg');
 
-  .no_select {
-    @include no_select;
-  }
+#debughive {
 
-  div.logo {
+  #logo {
     $logo_color: #000;
-    /*background-image: url('http://debughive.com/public/images/debug.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 500px;*/
-    height: 500px;
+    height: 520px;
     width: 500px;
     position: relative;
     margin: auto;
-
+    z-index: 10;
+    background-image: radial-gradient(circle closest-side, rgba(0,0,0,.5), rgba(0,0,0,0));
+    @include border-radius(50%);
+    @include no_select();
     div.debug {
       .head {
         position: absolute;
@@ -53,7 +48,7 @@
         position: absolute;
         top: 129px;
         left: 162px;
-        @include half_hexagon($logo_color, 90px, 0px, 5px);
+        @include half_hexagon($logo_color, 90px, false, 5px);
         @include rotate(180deg);
       }
       .wing_r {
@@ -64,16 +59,17 @@
       }
     }
 
-    div.hexagon {
+    .hexagon {
       position: absolute;
       color: transparent;
       font-size: 150px;
       text-align: center;
       line-height: 159px;
-      @include hexagon($logo_color, 90px, 5px);
+      @include hexagon(#FFF, 90px);
+      &.active,
       &:active {
-        color: #FFF;
-        @include hexagon($logo_color, 90px);
+        color: #000;
+        @include hexagon(orange, 90px);
       }
       &.one {
         top: 213px;
@@ -89,5 +85,55 @@
       }
     }
 
+  }
+
+  #hive {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 500px;
+    height: 100%;
+    overflow: hidden;
+    background: darkorange;
+    @include linear-gradient(#000, orange);
+
+    & > div {
+      position: absolute;
+      top: -25%;
+      left: -25%;
+      width: 180%;
+      max-width: 2760px;
+      height: 110%;
+      text-align: center;
+      & > div {
+        display: inline-block;
+        position: relative;
+        width: 160px;
+        height: 140px;
+        margin: 0 107px 4px -19px;
+      }
+      .hexagon {
+        position: absolute;
+        color: transparent;
+        font-size: 150px;
+        text-align: center;
+        line-height: 159px;
+        @include hexagon(#AAA, 80px);
+        &.active,
+        &:active {
+          color: #FFF;
+          @include hexagon(orange, 80px);
+        }
+        &:nth-child(1) {
+          left: 0px;
+          top: 0px;
+        }
+        &:nth-child(2) {
+          left: 126px;
+          top: 75px;
+        }
+      }
+    }
   }
 }

@@ -63,11 +63,14 @@ body {
   width: 100%;
 }
 
-.debughive {
-  background-image: url("http://debughive.com/public/images/tile_background.jpg");
-}
-
-.debughive .no_select {
+#debughive #logo {
+  height: 520px;
+  width: 500px;
+  position: relative;
+  margin: auto;
+  z-index: 10;
+  background-image: radial-gradient(circle closest-side, rgba(0, 0, 0, 0.5), transparent);
+  border-radius: 50%;
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -82,18 +85,7 @@ body {
                                   supported by Chrome and Opera */
 }
 
-.debughive div.logo {
-  /*background-image: url('http://debughive.com/public/images/debug.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 500px;*/
-  height: 500px;
-  width: 500px;
-  position: relative;
-  margin: auto;
-}
-
-.debughive div.logo div.debug .head {
+#debughive #logo div.debug .head {
   position: absolute;
   top: 50px;
   left: 226px;
@@ -101,36 +93,36 @@ body {
   height: 91px;
   background: #000;
   /* default color */
-  background: -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 23.75px, transparent 23.75px), -webkit-linear-gradient(150deg, transparent 22.75px, #000 22.75px, #000 47.5px, transparent 47.5px), -webkit-linear-gradient(210deg, transparent 22.75px, #000 22.75px, #000 47.5px, transparent 47.5px), -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 23.75px, transparent 23.75px), -webkit-linear-gradient(270deg, transparent 0px, #000 0px, #000 23.75px, transparent 23.75px), -webkit-linear-gradient(90deg, transparent 0px, #000 0px, #000 23.75px, transparent 23.75px);
-  background-position: bottom left, bottom right, top right, top left, top left -7.77777778px, bottom left -7.77777778px;
-  background-size: 60% 51%;
+  background: -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 22.75px, transparent 22.75px), -webkit-linear-gradient(150deg, transparent 22.75px, #000 22.75px, #000 48.5px, transparent 48.5px), -webkit-linear-gradient(210deg, transparent 22.75px, #000 22.75px, #000 48.5px, transparent 48.5px), -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 22.75px, transparent 22.75px), -webkit-linear-gradient(270deg, transparent 0px, #000 0px, #000 22.75px, transparent 22.75px), -webkit-linear-gradient(90deg, transparent 0px, #000 0px, #000 22.75px, transparent 22.75px);
+  background-position: bottom 0.25px left, bottom 0.25px right, top 0.25px right, top 0.25px left, top left -7.02702703px, bottom left -7.02702703px;
+  background-size: 61% 50.2%;
   background-repeat: no-repeat;
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
 
-.debughive div.logo div.debug .head .antena {
+#debughive #logo div.debug .head .antena {
   background: #000;
   width: 10px;
   height: 30px;
   position: absolute;
 }
 
-.debughive div.logo div.debug .head .antena.antena_l {
+#debughive #logo div.debug .head .antena.antena_l {
   top: 5px;
   right: 5px;
   -webkit-transform: rotate(60deg);
   transform: rotate(60deg);
 }
 
-.debughive div.logo div.debug .head .antena.antena_r {
+#debughive #logo div.debug .head .antena.antena_r {
   bottom: 5px;
   right: 5px;
   -webkit-transform: rotate(120deg);
   transform: rotate(120deg);
 }
 
-.debughive div.logo div.debug .head .antena div {
+#debughive #logo div.debug .head .antena div {
   position: absolute;
   top: -15px;
   left: -5px;
@@ -140,7 +132,7 @@ body {
   border-radius: 50%;
 }
 
-.debughive div.logo div.debug .wing_l {
+#debughive #logo div.debug .wing_l {
   position: absolute;
   top: 129px;
   left: 162px;
@@ -148,15 +140,15 @@ body {
   height: 157.5px;
   background: #000;
   /* default color */
-  background: -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 40.375px, transparent 40.375px), -webkit-linear-gradient(150deg, transparent 39.375px, #000 39.375px, #000 80.75px, transparent 80.75px), -webkit-linear-gradient(210deg, transparent 39.375px, #000 39.375px, #000 80.75px, transparent 80.75px), -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 40.375px, transparent 40.375px), -webkit-linear-gradient(270deg, transparent 0px, #000 0px, #000 40.375px, transparent 40.375px), -webkit-linear-gradient(90deg, transparent 0px, #000 0px, #000 40.375px, transparent 40.375px);
-  background-position: bottom left, bottom right, top right, top left, top left -12px, bottom left -12px;
-  background-size: 60% 51%;
+  background: -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 39.375px, transparent 39.375px), -webkit-linear-gradient(150deg, transparent 39.375px, #000 39.375px, #000 81.75px, transparent 81.75px), -webkit-linear-gradient(210deg, transparent 39.375px, #000 39.375px, #000 81.75px, transparent 81.75px), -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 39.375px, transparent 39.375px), -webkit-linear-gradient(270deg, transparent 0px, #000 0px, #000 39.375px, transparent 39.375px), -webkit-linear-gradient(90deg, transparent 0px, #000 0px, #000 39.375px, transparent 39.375px);
+  background-position: bottom 0.25px left, bottom 0.25px right, top 0.25px right, top 0.25px left, top left -12.16216216px, bottom left -12.16216216px;
+  background-size: 61% 50.2%;
   background-repeat: no-repeat;
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
-.debughive div.logo div.debug .wing_r {
+#debughive #logo div.debug .wing_r {
   position: absolute;
   top: 129px;
   left: 258px;
@@ -165,12 +157,12 @@ body {
   background: #000;
   /* default color */
   background: -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 10px, transparent 10px), -webkit-linear-gradient(150deg, transparent 39.375px, #000 39.375px, #000 49.375px, transparent 49.375px), -webkit-linear-gradient(210deg, transparent 39.375px, #000 39.375px, #000 49.375px, transparent 49.375px), -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 10px, transparent 10px), -webkit-linear-gradient(270deg, transparent 0px, #000 0px, #000 10px, transparent 10px), -webkit-linear-gradient(90deg, transparent 0px, #000 0px, #000 10px, transparent 10px);
-  background-position: bottom left, bottom right, top right, top left, top left -12px, bottom left -12px;
-  background-size: 60% 51%;
+  background-position: bottom 0.25px left, bottom 0.25px right, top 0.25px right, top 0.25px left, top left -12.16216216px, bottom left -12.16216216px;
+  background-size: 61% 50.2%;
   background-repeat: no-repeat;
 }
 
-.debughive div.logo div.hexagon {
+#debughive #logo .hexagon {
   position: absolute;
   color: transparent;
   font-size: 150px;
@@ -178,44 +170,124 @@ body {
   line-height: 159px;
   width: 180px;
   height: 157.5px;
-  background: #000;
+  background: #FFF;
   /* default color */
-  background: -webkit-linear-gradient(30deg, transparent 39.375px, #000 39.375px, #000 44.375px, transparent 44.375px), -webkit-linear-gradient(150deg, transparent 39.375px, #000 39.375px, #000 44.375px, transparent 44.375px), -webkit-linear-gradient(210deg, transparent 39.375px, #000 39.375px, #000 44.375px, transparent 44.375px), -webkit-linear-gradient(330deg, transparent 39.375px, #000 39.375px, #000 44.375px, transparent 44.375px), -webkit-linear-gradient(270deg, transparent 0px, #000 0px, #000 5px, transparent 5px), -webkit-linear-gradient(90deg, transparent 0px, #000 0px, #000 5px, transparent 5px);
-  background-position: bottom left, bottom right, top right, top left, top center, bottom center;
-  background-size: 51% 51%;
+  background: -webkit-linear-gradient(30deg, transparent 39.375px, #FFF 39.375px, #FFF 80.75px, transparent 80.75px), -webkit-linear-gradient(150deg, transparent 39.375px, #FFF 39.375px, #FFF 80.75px, transparent 80.75px), -webkit-linear-gradient(210deg, transparent 39.375px, #FFF 39.375px, #FFF 80.75px, transparent 80.75px), -webkit-linear-gradient(330deg, transparent 39.375px, #FFF 39.375px, #FFF 80.75px, transparent 80.75px), -webkit-linear-gradient(270deg, transparent 0px, #FFF 0px, #FFF 80.75px, transparent 80.75px), -webkit-linear-gradient(90deg, transparent 0px, #FFF 0px, #FFF 80.75px, transparent 80.75px);
+  background-position: bottom .25px left, bottom .25px right, top .25px right, top .25px left, top center, bottom center;
+  background-size: 49.15% 50.16%;
   background-repeat: no-repeat;
 }
 
-.debughive div.logo div.hexagon:active {
-  color: #FFF;
+#debughive #logo .hexagon.active,
+#debughive #logo .hexagon:active {
+  color: #000;
   width: 180px;
   height: 157.5px;
-  background: #000;
+  background: orange;
   /* default color */
-  background: -webkit-linear-gradient(30deg, transparent 39.375px, #000 39.375px, #000 79.75px, transparent 79.75px), -webkit-linear-gradient(150deg, transparent 39.375px, #000 39.375px, #000 79.75px, transparent 79.75px), -webkit-linear-gradient(210deg, transparent 39.375px, #000 39.375px, #000 79.75px, transparent 79.75px), -webkit-linear-gradient(330deg, transparent 39.375px, #000 39.375px, #000 79.75px, transparent 79.75px), -webkit-linear-gradient(270deg, transparent 0px, #000 0px, #000 79.75px, transparent 79.75px), -webkit-linear-gradient(90deg, transparent 0px, #000 0px, #000 79.75px, transparent 79.75px);
-  background-position: bottom left, bottom right, top right, top left, top center, bottom center;
-  background-size: 51% 51%;
+  background: -webkit-linear-gradient(30deg, transparent 39.375px, orange 39.375px, orange 80.75px, transparent 80.75px), -webkit-linear-gradient(150deg, transparent 39.375px, orange 39.375px, orange 80.75px, transparent 80.75px), -webkit-linear-gradient(210deg, transparent 39.375px, orange 39.375px, orange 80.75px, transparent 80.75px), -webkit-linear-gradient(330deg, transparent 39.375px, orange 39.375px, orange 80.75px, transparent 80.75px), -webkit-linear-gradient(270deg, transparent 0px, orange 0px, orange 80.75px, transparent 80.75px), -webkit-linear-gradient(90deg, transparent 0px, orange 0px, orange 80.75px, transparent 80.75px);
+  background-position: bottom .25px left, bottom .25px right, top .25px right, top .25px left, top center, bottom center;
+  background-size: 49.15% 50.16%;
   background-repeat: no-repeat;
 }
 
-.debughive div.logo div.hexagon.one {
+#debughive #logo .hexagon.one {
   top: 213px;
   left: 20px;
 }
 
-.debughive div.logo div.hexagon.two {
+#debughive #logo .hexagon.two {
   top: 295px;
   left: 163px;
 }
 
-.debughive div.logo div.hexagon.three {
+#debughive #logo .hexagon.three {
   top: 213px;
   left: 306px;
+}
+
+#debughive #hive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 500px;
+  height: 100%;
+  overflow: hidden;
+  background: darkorange;
+  /* Fallback (could use .jpg/.png alternatively) */
+  background-color: #000;
+  /* SVG fallback for IE 9 (could be data URI, or could use filter) */
+  /* Safari 4, Chrome 1-9, iOS 3.2-4.3, Android 2.1-3.0 */
+  /* Safari 5.1, iOS 5.0-6.1, Chrome 10-25, Android 4.0-4.3 */
+  /* Firefox 3.6 - 15 */
+  /* Opera 11.1 - 12 */
+  /* Opera 15+, Chrome 25+, IE 10+, Firefox 16+, Safari 6.1+, iOS 7+, Android 4.4+ */
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#000), to(orange));
+  background-image: linear-gradient(to top, #000, orange);
+}
+
+#debughive #hive > div {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 180%;
+  max-width: 2760px;
+  height: 110%;
+  text-align: center;
+}
+
+#debughive #hive > div > div {
+  display: inline-block;
+  position: relative;
+  width: 160px;
+  height: 140px;
+  margin: 0 107px 4px -19px;
+}
+
+#debughive #hive > div .hexagon {
+  position: absolute;
+  color: transparent;
+  font-size: 150px;
+  text-align: center;
+  line-height: 159px;
+  width: 160px;
+  height: 140px;
+  background: #AAA;
+  /* default color */
+  background: -webkit-linear-gradient(30deg, transparent 35px, #AAA 35px, #AAA 72px, transparent 72px), -webkit-linear-gradient(150deg, transparent 35px, #AAA 35px, #AAA 72px, transparent 72px), -webkit-linear-gradient(210deg, transparent 35px, #AAA 35px, #AAA 72px, transparent 72px), -webkit-linear-gradient(330deg, transparent 35px, #AAA 35px, #AAA 72px, transparent 72px), -webkit-linear-gradient(270deg, transparent 0px, #AAA 0px, #AAA 72px, transparent 72px), -webkit-linear-gradient(90deg, transparent 0px, #AAA 0px, #AAA 72px, transparent 72px);
+  background-position: bottom .25px left, bottom .25px right, top .25px right, top .25px left, top center, bottom center;
+  background-size: 49.15% 50.16%;
+  background-repeat: no-repeat;
+}
+
+#debughive #hive > div .hexagon.active,
+#debughive #hive > div .hexagon:active {
+  color: #FFF;
+  width: 160px;
+  height: 140px;
+  background: orange;
+  /* default color */
+  background: -webkit-linear-gradient(30deg, transparent 35px, orange 35px, orange 72px, transparent 72px), -webkit-linear-gradient(150deg, transparent 35px, orange 35px, orange 72px, transparent 72px), -webkit-linear-gradient(210deg, transparent 35px, orange 35px, orange 72px, transparent 72px), -webkit-linear-gradient(330deg, transparent 35px, orange 35px, orange 72px, transparent 72px), -webkit-linear-gradient(270deg, transparent 0px, orange 0px, orange 72px, transparent 72px), -webkit-linear-gradient(90deg, transparent 0px, orange 0px, orange 72px, transparent 72px);
+  background-position: bottom .25px left, bottom .25px right, top .25px right, top .25px left, top center, bottom center;
+  background-size: 49.15% 50.16%;
+  background-repeat: no-repeat;
+}
+
+#debughive #hive > div .hexagon:nth-child(1) {
+  left: 0px;
+  top: 0px;
+}
+
+#debughive #hive > div .hexagon:nth-child(2) {
+  left: 126px;
+  top: 75px;
 }
 
 .resume {
   font-family: "Calibri Light";
   font-size: 12pt;
+  background: #FFF;
 }
 
 .resume img.logo {
@@ -307,11 +379,18 @@ body {
   color: steelblue;
 }
 
-.resume div.sub_section {
+.resume .sub_section {
   margin: 20px 0 0 0;
 }
 
-.resume div.reference a {
+.resume .sub_section.reference {
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px 20px 0 0;
+  width: 220px;
+}
+
+.resume .sub_section.reference a {
   display: block;
 }
 
@@ -424,5 +503,9 @@ body {
   .rental a:visited {
     color: #000;
   }
+}
+
+[v-cloak] {
+  display: none;
 }
 
