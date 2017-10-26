@@ -1,7 +1,63 @@
 
+/*@font-face {
+  font-family: "Alexxis Demo";
+  src: url("/fonts/alexxis-demo/Alexxis Demo.ttf");
+}
+@font-face {
+  font-family: "Android 7";
+  src: url("/fonts/android-7/android_7.ttf");
+}
+@font-face {
+  font-family: "Artypa";
+  src: url("/fonts/artypa/Artypa-Regular.otf");
+}
+@font-face {
+  font-family: "Game Front 7";
+  src: url("/fonts/game-font-7/game_font_7.ttf");
+}
+@font-face {
+  font-family: "Military Font 7";
+  src: url("/fonts/military-font-7/military_font_7.ttf");
+}
+@font-face {
+  font-family: "Printed Cicuit Board 7";
+  src: url("/fonts/printed-circuit-board-7/printed_circuit_board-7.ttf");
+}
+@font-face {
+  font-family: "RPM";
+  src: url("/fonts/rpm/RPM.otf");
+}
+@font-face {
+  font-family: "Ruler";
+  src: url("/fonts/ruler/Ruler Regular.ttf");
+}
+@font-face {
+  font-family: "Ruler Stencil";
+  src: url("/fonts/ruler-stencil/Ruler Stencil Regular.ttf");
+}
+@font-face {
+  font-family: "Simply Tall";
+  src: url("/fonts/simply-tall/SimplyTall.ttf");
+}
+@font-face {
+  font-family: "Taurus Mono";
+  src: url("/fonts/taurus-mono/Taurus-Mono-Outline-Regular.otf");
+}*/
+@font-face {
+  font-family: "Vila Madalena";
+  src: url("/fonts/vila-madalena/vila madalena.otf");
+}
 #debughive {
 
   #logo {
+    /*font-family: "Android 7";
+    font-family: "Game Front 7";
+    font-family: "Military Font 7";
+    font-family: "Ruler";
+    font-family: "Ruler Stencil";
+    font-family: "Simply Tall";*/
+    font-family: "Vila Madalena";
+
     $logo_color: #000;
     height: 520px;
     width: 500px;
@@ -11,6 +67,18 @@
     background-image: radial-gradient(circle closest-side, rgba(0,0,0,.5), rgba(0,0,0,0));
     @include border-radius(50%);
     @include no_select();
+
+    #logo_text {
+      @include font-size(48px);
+      font-weight: bold;
+      color: #FFF;
+      position: absolute;
+      left: 346px;
+      top: 154px;
+      text-shadow: 0px 7px 16px rgba(0,0,0,.7);
+      letter-spacing: -2px;
+    }
+
     div.debug {
       .head {
         position: absolute;
@@ -55,20 +123,22 @@
         position: absolute;
         top: 129px;
         left: 258px;
-        @include half_hexagon($logo_color, 90px, 10px, 5px);
+        @include half_hexagon(#FFF, 90px, 10px, 5px);
       }
     }
 
     .hexagon {
       position: absolute;
-      color: transparent;
-      font-size: 150px;
+      color: #000;
+      @include font-size(36px);
       text-align: center;
-      line-height: 159px;
+      text-transform: uppercase;
+      line-height: 157px;
       @include hexagon(#FFF, 90px);
       &.active,
       &:active {
-        color: #000;
+        color: #FFF;
+        font-weight: bold;
         @include hexagon(orange, 90px);
       }
       &.one {
@@ -98,12 +168,22 @@
     background: darkorange;
     @include linear-gradient(#000, orange);
 
-    & > div {
+    .connection_line {
+      background: #FFF;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top:0px;
+      left:0px;
+      display: none;
+    }
+
+    & > div.container {
       position: absolute;
       top: -25%;
       left: -25%;
       width: 180%;
-      max-width: 2760px;
+      max-width: 2750px;
       height: 110%;
       text-align: center;
       & > div {

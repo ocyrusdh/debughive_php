@@ -63,7 +63,64 @@ body {
   width: 100%;
 }
 
+/*@font-face {
+  font-family: "Alexxis Demo";
+  src: url("/fonts/alexxis-demo/Alexxis Demo.ttf");
+}
+@font-face {
+  font-family: "Android 7";
+  src: url("/fonts/android-7/android_7.ttf");
+}
+@font-face {
+  font-family: "Artypa";
+  src: url("/fonts/artypa/Artypa-Regular.otf");
+}
+@font-face {
+  font-family: "Game Front 7";
+  src: url("/fonts/game-font-7/game_font_7.ttf");
+}
+@font-face {
+  font-family: "Military Font 7";
+  src: url("/fonts/military-font-7/military_font_7.ttf");
+}
+@font-face {
+  font-family: "Printed Cicuit Board 7";
+  src: url("/fonts/printed-circuit-board-7/printed_circuit_board-7.ttf");
+}
+@font-face {
+  font-family: "RPM";
+  src: url("/fonts/rpm/RPM.otf");
+}
+@font-face {
+  font-family: "Ruler";
+  src: url("/fonts/ruler/Ruler Regular.ttf");
+}
+@font-face {
+  font-family: "Ruler Stencil";
+  src: url("/fonts/ruler-stencil/Ruler Stencil Regular.ttf");
+}
+@font-face {
+  font-family: "Simply Tall";
+  src: url("/fonts/simply-tall/SimplyTall.ttf");
+}
+@font-face {
+  font-family: "Taurus Mono";
+  src: url("/fonts/taurus-mono/Taurus-Mono-Outline-Regular.otf");
+}*/
+
+@font-face {
+  font-family: "Vila Madalena";
+  src: url("/fonts/vila-madalena/vila madalena.otf");
+}
+
 #debughive #logo {
+  /*font-family: "Android 7";
+    font-family: "Game Front 7";
+    font-family: "Military Font 7";
+    font-family: "Ruler";
+    font-family: "Ruler Stencil";
+    font-family: "Simply Tall";*/
+  font-family: "Vila Madalena";
   height: 520px;
   width: 500px;
   position: relative;
@@ -83,6 +140,18 @@ body {
   user-select: none;
   /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+#debughive #logo #logo_text {
+  font-size: 48px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #FFF;
+  position: absolute;
+  left: 346px;
+  top: 154px;
+  text-shadow: 0px 7px 16px rgba(0, 0, 0, 0.7);
+  letter-spacing: -2px;
 }
 
 #debughive #logo div.debug .head {
@@ -154,9 +223,9 @@ body {
   left: 258px;
   width: 85px;
   height: 157.5px;
-  background: #000;
+  background: #FFF;
   /* default color */
-  background: -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 10px, transparent 10px), -webkit-linear-gradient(150deg, transparent 39.375px, #000 39.375px, #000 49.375px, transparent 49.375px), -webkit-linear-gradient(210deg, transparent 39.375px, #000 39.375px, #000 49.375px, transparent 49.375px), -webkit-linear-gradient(0deg, transparent 0px, #000 0px, #000 10px, transparent 10px), -webkit-linear-gradient(270deg, transparent 0px, #000 0px, #000 10px, transparent 10px), -webkit-linear-gradient(90deg, transparent 0px, #000 0px, #000 10px, transparent 10px);
+  background: -webkit-linear-gradient(0deg, transparent 0px, #FFF 0px, #FFF 10px, transparent 10px), -webkit-linear-gradient(150deg, transparent 39.375px, #FFF 39.375px, #FFF 49.375px, transparent 49.375px), -webkit-linear-gradient(210deg, transparent 39.375px, #FFF 39.375px, #FFF 49.375px, transparent 49.375px), -webkit-linear-gradient(0deg, transparent 0px, #FFF 0px, #FFF 10px, transparent 10px), -webkit-linear-gradient(270deg, transparent 0px, #FFF 0px, #FFF 10px, transparent 10px), -webkit-linear-gradient(90deg, transparent 0px, #FFF 0px, #FFF 10px, transparent 10px);
   background-position: bottom 0.25px left, bottom 0.25px right, top 0.25px right, top 0.25px left, top left -12.16216216px, bottom left -12.16216216px;
   background-size: 61% 50.2%;
   background-repeat: no-repeat;
@@ -164,10 +233,12 @@ body {
 
 #debughive #logo .hexagon {
   position: absolute;
-  color: transparent;
-  font-size: 150px;
+  color: #000;
+  font-size: 36px;
+  font-size: 2.25rem;
   text-align: center;
-  line-height: 159px;
+  text-transform: uppercase;
+  line-height: 157px;
   width: 180px;
   height: 157.5px;
   background: #FFF;
@@ -180,7 +251,8 @@ body {
 
 #debughive #logo .hexagon.active,
 #debughive #logo .hexagon:active {
-  color: #000;
+  color: #FFF;
+  font-weight: bold;
   width: 180px;
   height: 157.5px;
   background: orange;
@@ -227,17 +299,27 @@ body {
   background-image: linear-gradient(to top, #000, orange);
 }
 
-#debughive #hive > div {
+#debughive #hive .connection_line {
+  background: #FFF;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+}
+
+#debughive #hive > div.container {
   position: absolute;
   top: -25%;
   left: -25%;
   width: 180%;
-  max-width: 2760px;
+  max-width: 2750px;
   height: 110%;
   text-align: center;
 }
 
-#debughive #hive > div > div {
+#debughive #hive > div.container > div {
   display: inline-block;
   position: relative;
   width: 160px;
@@ -245,7 +327,7 @@ body {
   margin: 0 107px 4px -19px;
 }
 
-#debughive #hive > div .hexagon {
+#debughive #hive > div.container .hexagon {
   position: absolute;
   color: transparent;
   font-size: 150px;
@@ -261,8 +343,8 @@ body {
   background-repeat: no-repeat;
 }
 
-#debughive #hive > div .hexagon.active,
-#debughive #hive > div .hexagon:active {
+#debughive #hive > div.container .hexagon.active,
+#debughive #hive > div.container .hexagon:active {
   color: #FFF;
   width: 160px;
   height: 140px;
@@ -274,12 +356,12 @@ body {
   background-repeat: no-repeat;
 }
 
-#debughive #hive > div .hexagon:nth-child(1) {
+#debughive #hive > div.container .hexagon:nth-child(1) {
   left: 0px;
   top: 0px;
 }
 
-#debughive #hive > div .hexagon:nth-child(2) {
+#debughive #hive > div.container .hexagon:nth-child(2) {
   left: 126px;
   top: 75px;
 }
